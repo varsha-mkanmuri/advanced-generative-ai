@@ -2,6 +2,7 @@
 ## 📚 Resources & References
 
 - 🔗 [Conv2d Visualization](https://setosa.io/ev/image-kernels/)
+-  Visualization of CNN - https://adamharley.com/nn_vis/
 - 🎥 [CNN Explained](https://www.youtube.com/watch?v=QzY57FaENXg)
 - 🎥 [GANs Explained](https://www.youtube.com/watch?v=TpMIssRdhco)
 - 🎥 [GAN + CNN (DCGAN)](https://www.youtube.com/watch?v=pj9-rr1wDhM)
