@@ -1,0 +1,138 @@
+Visualize Conv2d :  https://setosa.io/ev/image-kernels/
+CNN - https://www.youtube.com/watch?v=QzY57FaENXg
+GANs - https://www.youtube.com/watch?v=TpMIssRdhco
+GAN + CNN - https://www.youtube.com/watch?v=pj9-rr1wDhM
+
+What is a CNN (Convolutional Neural Network)?
+A Convolutional Neural Network (CNN) is a type of deep learning model that is specifically designed to work with images. It can learn to recognize patterns like edges, textures, shapes, and objects by using special layers called convolutional layers.
+
+
+
+Why CNNs for Images?
+Unlike fully connected neural networks (which treat all pixels equally), CNNs use the spatial structure of images—they understand that:
+Nearby pixels matter more than faraway ones
+
+
+Patterns repeat across regions of the image
+
+
+Small patterns combine to form larger concepts (like edges → eyes → faces)
+
+
+
+
+Key Building Blocks of a CNN
+1. Convolutional Layer (Conv2d) - https://www.youtube.com/watch?v=yb2tPt0QVPY
+Applies small filters (e.g., 3×3 or 5×5) to the image to detect features.
+
+
+Each filter slides across the image like a window, computing dot products.
+
+
+Helps detect patterns like edges, corners, curves.
+
+
+
+
+2. Activation Function (usually ReLU)
+Adds non-linearity so the model can learn complex patterns.
+
+
+ReLU (Rectified Linear Unit) replaces negative values with zero.
+3. Pooling Layer (like MaxPool2d)
+Reduces the size of the feature maps (downsampling).
+
+
+Keeps the most important information and improves computation speed.
+
+
+Not used in DCGANs (they use strided convolutions instead).
+4. Fully Connected (Linear) Layer
+At the end of the CNN, converts all detected features into a final prediction.
+
+
+Example: “Is this a cat, dog, or car?”
+
+GAN
+A GAN has two competing neural networks:
+Generator (G):
+
+
+Takes in random noise (a vector like z ~ N(0,1))
+
+
+Outputs a fake image (e.g., 32x32 RGB)
+
+
+Goal: Fool the discriminator
+
+
+Discriminator (D):
+
+
+Takes an image (real or fake)
+
+
+Outputs a score (real=1, fake=0)
+
+
+Goal: Correctly tell apart real vs. generated images
+
+
+They are trained adversarially, like a cat-and-mouse game:
+Generator learns to produce more realistic images.
+
+
+Discriminator learns to become better at spotting fakes.
+
+DCGAN
+DCGAN stands for Deep Convolutional Generative Adversarial Network.
+It's a type of GAN (Generative Adversarial Network) designed specifically to generate images using deep convolutional neural networks (CNNs) instead of fully connected (dense) layers.
+
+
+
+Conv2d
+        Extracts features by shrinking image     (downsampling)
+Classifiers, Discriminators
+
+
+ConvTranspose2d
+Reconstructs/expands image (upsampling)
+Generators (like in DCGAN)
+
+
+How GANs and CNNs are Related
+GAN (Generative Adversarial Network) is a training framework.
+A Generator (G) that tries to create realistic images.
+
+
+A Discriminator (D) that tries to tell real from fake.
+
+
+But GANs don’t say how to build G or D — they’re just a strategy for training two competing models.
+
+ CNN (Convolutional Neural Network) is a type of neural architecture.
+It’s specifically good at:
+Understanding images (used in classification).
+
+
+Generating images (used in synthesis).
+
+
+CNNs are the building blocks of most GANs.
+The Discriminator is typically a CNN classifier.
+
+
+It takes an image and uses Conv2d layers to extract features.
+
+
+Then outputs a score: real (1) or fake (0).
+
+
+The Generator is typically a CNN in reverse (aka Deconvolutional Network).
+
+
+It starts from noise and uses ConvTranspose2d layers to upsample.
+
+
+This builds an image from scratch.
